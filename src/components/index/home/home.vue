@@ -5,6 +5,7 @@
 				<img :src="datas.bannerImgSrc" alt="">
 			</mt-swipe-item>
 		</mt-swipe>
+		
 	</div>
 </template>
 
@@ -12,7 +13,7 @@
 	import Vue from 'vue';
 	import axios from 'axios';
 	import { Swipe, SwipeItem } from 'mint-ui';
-	import 'mint-ui/lib/style.css'
+	import 'mint-ui/lib/style.css';
 
 	Vue.component(Swipe.name, Swipe);
 	Vue.component(SwipeItem.name, SwipeItem);

@@ -1,17 +1,19 @@
 <template>
-	<nav>
-		<div class="logoAndSeek">
-			<img src="../../assets/images/titleLogo.png">
-			<input type="text" class="seek">
-			<ul>
-				<router-link activeClass="end" to="/index/home" tag="li">推荐</router-link>
-				<router-link activeClass="end" to="/index/recommen" tag="li">家具</router-link>
-				<router-link activeClass="end" to="/index/homedesign" tag="li">家居</router-link>
-				<router-link activeClass="end" to="/index/activity" tag="li">活动</router-link>
-			</ul>
-		</div>
+	<div>
+		<nav>
+			<div class="logoAndSeek">
+				<img src="../../assets/images/titleLogo.png">
+				<input type="text" class="seek">
+				<ul>
+					<router-link activeClass="end" to="/index/home" tag="li">推荐</router-link>
+					<router-link activeClass="end" to="/index/recommen" tag="li">家具</router-link>
+					<router-link activeClass="end" to="/index/homedesign" tag="li">家居</router-link>
+					<router-link activeClass="end" to="/index/activity" tag="li">活动</router-link>
+				</ul>
+			</div>
+		</nav>
 		<router-view></router-view>
-	</nav>
+	</div>
 </template>
 
 <script>
