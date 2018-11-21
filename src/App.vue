@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view/>
-    <navs></navs>
+    <navs id="class"></navs>
   </div>
 </template>
 
@@ -36,5 +36,8 @@ ul,li{
   display: block;
   content: '';
   clear: both;
+}
+#class{
+  overflow: hidden;
 }
 </style>
