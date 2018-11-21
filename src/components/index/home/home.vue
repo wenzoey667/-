@@ -1,11 +1,7 @@
 <template>
 	<div>
-		<mt-swipe v-if="contents.data" :auto="0">
-			<mt-swipe-item v-for="datas,index in contents.data.modules[0].moduleContent.banners" :key="datas.id">
-				<img :src="datas.bannerImgSrc" alt="">
-			</mt-swipe-item>
-		</mt-swipe>
-		
+		<swipe :contents="contents"></swipe>
+		<shop :contents="contents"></shop>
 	</div>
 </template>
 
@@ -14,6 +10,8 @@
 	import axios from 'axios';
 	import { Swipe, SwipeItem } from 'mint-ui';
 	import 'mint-ui/lib/style.css';
+	import swipe from './swipe.vue';
+	import shop from './shop.vue';
 
 	Vue.component(Swipe.name, Swipe);
 	Vue.component(SwipeItem.name, SwipeItem);
@@ -23,6 +21,10 @@
 			return {
 				contents: {}
 			}
+		},
+		components:{
+			swipe,
+			shop
 		},
 		mounted(){
 			if (this.$store.state.indexData.length === 0) {
@@ -41,10 +43,5 @@
 <style scoped>
 img{
 	width: 100%;
-}
-</style>
-<style>
-.mint-swipe-items-wrap {
-	height: 250px;
 }
 </style>
