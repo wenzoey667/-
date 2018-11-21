@@ -1,12 +1,12 @@
 <template>
 	<div>
-		这是家居
+		这是详情
 	</div>
 </template>
 
 <script>
 	export default {
-		name: 'homedesign',
+		name: 'productgroup',
 	}
 </script>
 
