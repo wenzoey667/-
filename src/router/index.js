@@ -25,5 +25,11 @@ export default new Router({
       path: 'activity',
       component: activity
     }]
+  },{
+    path: '/',
+    redirect: '/index/home'
+  },{
+    path: '*',
+    redirect: '/index/home'
   }]
 })
