@@ -13,43 +13,46 @@
 		<h2>{{contents.data.modules[6].moduleName}}</h2>
 		<div class="uls">
 			<div class="lis">
-				<a href="javascript:;">
+				<div to="/detail/:id">
 					<img :src="contents.data.modules[6].moduleContent.products[0].productImg">
 					<p>{{contents.data.modules[6].moduleContent.products[0].productName}}</p><span>￥{{contents.data.modules[6].moduleContent.products[0].originalPrice}}</span>
-				</a>
+				</div>
 			</div>
 			<div class="lis">
-				<a href="javascript:;">
+				<div to="/detail/:id">
 					<img :src="contents.data.modules[6].moduleContent.products[1].productImg">
 					<p>{{contents.data.modules[6].moduleContent.products[1].productName}}</p><span>￥{{contents.data.modules[6].moduleContent.products[1].originalPrice}}</span>
-				</a>
+				</div>
 			</div>
 			<div class="lis">
-				<a href="javascript:;">
+				<div to="/detail/:id">
 					<img :src="contents.data.modules[6].moduleContent.products[2].productImg">
 					<p>{{contents.data.modules[6].moduleContent.products[2].productName}}</p><span>￥{{contents.data.modules[6].moduleContent.products[2].originalPrice}}</span>
-				</a>
+				</div>
 			</div>
 			<div class="lis">
-				<a href="javascript:;">
+				<div to="/detail/:id">
 					<img :src="contents.data.modules[6].moduleContent.products[3].productImg">
 					<p>{{contents.data.modules[6].moduleContent.products[3].productName}}</p><span>￥{{contents.data.modules[6].moduleContent.products[3].originalPrice}}</span>
-				</a>
+				</div>
 			</div>
 			<div class="lis">
-				<a href="javascript:;">
+				<div to="/detail/:id">
 					<img :src="contents.data.modules[6].moduleContent.products[4].productImg">
 					<p>{{contents.data.modules[6].moduleContent.products[4].productName}}</p><span>￥{{contents.data.modules[6].moduleContent.products[4].originalPrice}}</span>
-				</a>
+				</div>
 			</div>
 			<div class="lis">
-				<a href="javascript:;">
+				<div to="/detail/:id">
 					<img :src="contents.data.modules[6].moduleContent.products[5].productImg">
 					<p>{{contents.data.modules[6].moduleContent.products[5].productName}}</p><span>￥{{contents.data.modules[6].moduleContent.products[5].originalPrice}}</span>
-				</a>
+				</div>
 			</div>
 		</div>
-		<a class="drap">查看全部</a>
+		<div class="drap" @click="drap(contents.data.modules[6].moduleContent.id)">查看全部  ▶</div>
+		<div class="top" @click="goTop()" v-show="isshow">
+			<img src="../../../assets/images/backTop.png" alt="">
+		</div>
 		<p class="lastItem"></p>
 	</div>
 </template>
@@ -62,7 +65,22 @@
 		name: 'activity',
 		data(){
 			return{
-				contents:{}
+				contents:{},
+				isshow: false
+			}
+		},
+		methods: {
+			goTop(){
+				var time = Math.floor(document.documentElement.scrollTop / 10)
+				var ing = setInterval(()=>{
+					document.documentElement.scrollTop -= time
+					if (document.documentElement.scrollTop <= 0) {
+						clearInterval(ing);
+					}
+				},50);
+			},
+			drap(id){
+				this.$router.push('/index/productgroup/'+id)
 			}
 		},
 		components:{
@@ -70,9 +88,15 @@
 			'swipe-item':SwipeItem
 		},
 		mounted(){
-			if(this.$store.state.indexData.length==0){
+			window.addEventListener('scroll',()=>{
+				if (document.documentElement.scrollTop > 400) {
+					this.isshow = true
+				} else {
+					this.isshow = false
+				}
+			})
+			if(this.$store.state.indexData.length===0){
 				axios.get('/v2/page?pageId=1&tabId=10010&_=1542777383978').then(resp=>{
-					console.log(resp.data);
 					this.contents = resp.data;
 					this.$store.state.indexData = resp.data;
 				})
@@ -87,6 +111,13 @@
 	*{
 		margin: 0;
 		padding: 0;
+	}
+	.top{
+		width: 45px;
+		height: 45px;
+		position: fixed;
+		right: 20px;
+		bottom: 70px;
 	}
 	div{
 		background-color: #f5f5f5;
