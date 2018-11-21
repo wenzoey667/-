@@ -2,6 +2,8 @@
 	<div>
 		<div class="world" v-if="contents.data">
 			<div v-for="data,index in contents.data.modules">
+
+
 				<div v-if="data.moduleType == 102" class="box102 box" :key="data.moduleContent.id">
 					<div class="text">
 						<h3>{{data.moduleName}}</h3>
@@ -11,6 +13,8 @@
 						<img :src="data.moduleContent.banners[0].bannerImgSrc" alt="">
 					</div>
 				</div>
+
+
 				<div v-else-if="data.moduleType == 107" class="box107 box" :key="data.moduleContent.id">
 					<div class="text">
 						<h3>{{data.moduleName}}</h3>
@@ -21,7 +25,7 @@
 							<img :src="data.moduleContent.banners[0].bannerImgSrc" alt="">
 						</div>
 						<div class="imgs">
-							<div v-for="val,i in data.moduleContent.products" class="smallimg">
+							<div v-for="val,i in data.moduleContent.products" class="smallimg"  @click="setdetail(val.productId,val.parentProductId,val.productName,val.sellPrice)">
 								<img :src="val.productImg" alt="">
 								<h5>{{val.productTitle}}</h5>
 								<p>¥ {{val.originalPrice}}</p>
@@ -29,6 +33,8 @@
 						</div>
 					</div>
 				</div>
+
+
 				<div v-else-if="data.moduleType == 401" class="box401" :key="data.moduleContent.id">
 					<div class="text">
 						<h3>{{data.moduleName}}</h3>
@@ -73,18 +79,20 @@
 						clearInterval(ing);
 					}
 				},50);
+			},
+			setdetail(id,parentid,name,money){
+				this.$store.state.detailname = name;
+				this.$store.state.detailmoney = money;
+				this.$router.push('/detail/' + id + '/' + parentid)
 			}
 		},
 		/******************************************/
 		mounted(){
 			/***************顶部函数*******************/
 			window.addEventListener('scroll',()=>{
-				console.log(document.documentElement.scrollTop);
 				if (document.documentElement.scrollTop > 400) {
-					console.log('y');
 					this.isshow = true
 				} else {
-					console.log('n');
 					this.isshow = false
 				}
 			})

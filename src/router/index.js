@@ -27,12 +27,12 @@ export default new Router({
       path: 'activity',
       component: activity
     },{
-      path: 'productgroup',
+      path: 'productgroup/:id',
       component: productgroup
     }]
   },
   {
-    path: '/detail',
+    path: '/detail/:id/:parentid',
     component: detail
   },{
     path: '/',

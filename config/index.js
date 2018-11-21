@@ -15,6 +15,16 @@ module.exports = {
             target: "https://m.wowdsgn.com",
             host: "m.wowdsgn.com",
             changeOrigin: true
+        },
+        "/itemdetail":{
+            target: "https://m.wowdsgn.com",
+            host: "m.wowdsgn.com",
+            changeOrigin: true
+        },
+        "/pages":{
+            target: "https://m.wowdsgn.com",
+            host: "m.wowdsgn.com",
+            changeOrigin: true
         }
     },
 
