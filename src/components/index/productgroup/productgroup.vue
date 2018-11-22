@@ -45,7 +45,7 @@
 				this.current += 6;
 				if(this.current>this.total){
 					this.loading = true;
-					this.msg= "到底了";
+					this.msg= "没有更多了";
 					/*console.log('------------')*/
 			    	return ;
 				}

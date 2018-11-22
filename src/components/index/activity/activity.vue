@@ -67,14 +67,14 @@
 					this.isshow = false
 				}
 			})
-			if(this.$store.state.indexData.length===0){
-				axios.get('/v2/page?pageId=1&tabId=10010&_=1542777383978').then(resp=>{
+			if(this.$store.state.activeData.length===0){
+				axios.get('/v2/page?pageId=1&tabId=10010&_='+new Date().getTime()).then(resp=>{
 					this.contents = resp.data;
 					this.showArr = this.contents.data.modules[6].moduleContent.products.slice(0,6);
-					this.$store.state.indexData = resp.data;
+					this.$store.state.activeData = resp.data;
 				})
 			}else{
-				this.contents = this.$store.state.indexData;
+				this.contents = this.$store.state.activeData;
 			}
 		}
 	}
