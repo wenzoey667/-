@@ -29,7 +29,7 @@
 				groups:null,
 				loading:false,
 				current:4,
-				total:4,
+				total:0,
 				msg:"正在加载中....."
 			}
 		},
@@ -46,7 +46,7 @@
 				if(this.current>this.total){
 					this.loading = true;
 					this.msg= "到底了";
-					console.log('------------')
+					/*console.log('------------')*/
 			    	return ;
 				}
 				axios.get('/pages/productGroup/' + this.$route.params.id + '/products?pageNumber=1&_=1542797443199').then((res)=>{
