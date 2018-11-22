@@ -7,7 +7,9 @@ var store = new vuex.Store({
 	state: {
 		indexData: [],
 		activeData:[],
-		detail: []
+		detail: [],
+		cartlist:[],
+		count:0
 	},
 	mutations: {
 
