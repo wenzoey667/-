@@ -84,6 +84,7 @@
 			}
 		},
 		mounted(){
+			console.log(this.$store.state.detail);
 			document.documentElement.scrollTop = 0;
 			this.name = this.$store.state.detail.productTitle;
 			this.money = this.$store.state.detail.sellPrice;
