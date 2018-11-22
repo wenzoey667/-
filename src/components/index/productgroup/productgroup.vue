@@ -36,7 +36,6 @@
 		mounted(){
 			axios.get('/pages/productGroup/' + this.$route.params.id + '/products?pageNumber=1&_=1542797443199').then((res)=>{
 				this.groups = res.data.data.products;
-				console.log(this.groups);
 				this.total = this.groups.length;
 			})
 		},
@@ -46,12 +45,10 @@
 				if(this.current>this.total){
 					this.loading = true;
 					this.msg= "没有更多了";
-					/*console.log('------------')*/
 			    	return ;
 				}
 				axios.get('/pages/productGroup/' + this.$route.params.id + '/products?pageNumber=1&_=1542797443199').then((res)=>{
 					this.groups = res.data.data.products;
-					/*console.log(res.data.data);*/
 				})
 			}
 		}

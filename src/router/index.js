@@ -10,6 +10,8 @@ import detail from '../components/detail/detail'
 import category from '../components/category/category'
 import cart from '../components/cart/cart'
 import infos from '../components/infos/infos'
+import contents from '../components/contents/contents'
+import xijie from '../components/contents/xijie'
 import mine from '../components/mine/mine'
 
 Vue.use(Router)
@@ -46,6 +48,14 @@ export default new Router({
   {
     path:'/infos',
     component:infos
+  },
+  {
+    path: '/contents',
+    component: contents,
+  },
+  {
+    path: '/xijie',
+    component: xijie,
   },
   {
     path:'/mine',
