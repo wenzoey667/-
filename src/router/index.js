@@ -52,7 +52,7 @@ export default new Router({
     component:mine
   },
   {
-    path: '/detail/:id/:parentid',
+    path: '/detail/:id',
     component: detail
   },{
     path: '/',

@@ -6,9 +6,8 @@ Vue.use(vuex)
 var store = new vuex.Store({
 	state: {
 		indexData: [],
-		detailname: '',
-		detailmoney: 0,
-		activeData:[]
+		activeData:[],
+		detail: []
 	},
 	mutations: {
 
