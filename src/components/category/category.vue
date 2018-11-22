@@ -1,18 +1,43 @@
 <template>
 	<div>
-		<header>
-			<img src="../../assets/images/titleLogo.png">
-			<input type="text" class="seek">
-		</header>
-		<div class="info">
-			<img src="https://m.wowdsgn.com/static/img/furniture.png">
+		<div class="jiaju">
+			<header>
+				<img src="../../assets/images/titleLogo.png">
+				<input type="text" class="seek">
+			</header>
+			<div class="info">
+				<img src="https://m.wowdsgn.com/static/img/furniture.png">
+			</div>
+			<ul>
+				<li @click="handleClick($store.state.categoryId)"><span>沙发</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+				<li @click="handleClick($store.state.categoryId)"><span>椅凳</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+				<li @click="handleClick($store.state.categoryId)"><span>桌几</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+				<li @click="handleClick($store.state.categoryId)"><span>床</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+				<li @click="handleClick($store.state.categoryId)"><span>柜架</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+				<li @click="handleClick($store.state.categoryId)"><span>餐桌</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+				<li @click="handleClick($store.state.categoryId)"><span>茶几和边桌</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+				<li @click="handleClick($store.state.categoryId)"><span>书桌</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+				<li @click="handleClick($store.state.categoryId)"><span>隔断</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+			</ul>
 		</div>
-		<ul>
-			<li><span>沙发</span><i></i></li>
-		</ul>
+		<div class="jiajuju">
+			<div class="info">
+				<img src="https://m.wowdsgn.com/static/img/household.png">
+			</div>
+			<ul>
+				<li @click="handleClick($store.state.categoryId)"><span>灯具</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+				<li @click="handleClick($store.state.categoryId)"><span>用餐</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+				<li @click="handleClick($store.state.categoryId)"><span>时尚生活</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+				<li @click="handleClick($store.state.categoryId)"><span>烹饪</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+				<li @click="handleClick($store.state.categoryId)"><span>纺织品</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+				<li @click="handleClick($store.state.categoryId)"><span>家饰</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+				<li @click="handleClick($store.state.categoryId)"><span>卫浴</span><i class="icon-iconfontjiantou4 iconfont"></i></li>
+			</ul>
+		</div>
 	</div>
 </template>
 <script>
+	import '../../assets/font_930300_nko4s52xf2a/iconfont.css'
 	export default{
 
 	}
@@ -43,7 +68,7 @@ header{
 	}
 }
 .info{
-	padding:0 15px 50px 15px;
+	padding:0 15px;
     position: relative;
     background: #fff;	
     margin: 0 auto;
@@ -53,5 +78,23 @@ header{
     	width:345px;
     	height: 115px;
     }
+}
+ul{
+	padding: 0 15px;
+}
+li{
+	line-height: 38px;
+    color: #202020;
+    font-size: 15px;
+    padding:5px 0;
+    color: #000;
+    border-bottom: 1px solid #eaeaea;
+    text-indent: 10px;
+}
+i{
+	float: right;
+	position: relative;
+	right: 5px;
+	color:#ccc;
 }
 </style>
