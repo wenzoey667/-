@@ -25,7 +25,7 @@
 							<img :src="data.moduleContent.banners[0].bannerImgSrc" alt="">
 						</div>
 						<div class="imgs">
-							<div v-for="val,i in data.moduleContent.products" class="smallimg"  @click="setdetail(val.productId,val.parentProductId,val.productName,val.sellPrice)">
+							<div v-for="val,i in data.moduleContent.products" class="smallimg"  @click="setdetail(val)">
 								<img :src="val.productImg" alt="">
 								<h5>{{val.productTitle}}</h5>
 								<p>¥ {{val.originalPrice}}</p>
@@ -42,7 +42,7 @@
 					</div>
 					<div class="mdzz">
 						<div class="long">
-							<div class="l_box" v-for="val,i in data.moduleContent.products">
+							<div class="l_box" v-for="val,i in data.moduleContent.products" @click="setdetail(val.productId,val.parentProductId,val.productName,val.sellPrice)">
 								<img :src="val.productImg" alt="">
 								<p>{{val.productName}}</p>
 								<span>¥ {{val.sellPrice}}</span>
@@ -80,10 +80,9 @@
 					}
 				},50);
 			},
-			setdetail(id,parentid,name,money){
-				this.$store.state.detailname = name;
-				this.$store.state.detailmoney = money;
-				this.$router.push('/detail/' + id + '/' + parentid)
+			setdetail(id){
+				this.$store.state.detail = name;
+				this.$router.push('/detail/' + id.productId)
 			}
 		},
 		/******************************************/
