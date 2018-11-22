@@ -9,6 +9,8 @@ import productgroup from '../components/index/productgroup/productgroup'
 import detail from '../components/detail/detail'
 import category from '../components/category/category'
 import cart from '../components/cart/cart'
+import infos from '../components/infos/infos'
+import mine from '../components/mine/mine'
 
 Vue.use(Router)
 
@@ -40,6 +42,14 @@ export default new Router({
   {
     path:'/cart',
     component:cart
+  },
+  {
+    path:'/infos',
+    component:infos
+  },
+  {
+    path:'/mine',
+    component:mine
   },
   {
     path: '/detail/:id/:parentid',
