@@ -10,8 +10,8 @@
 				<div class="icon left">
 					<i class="iconfont icon-tongzhi"></i>
 				</div>
-				<div class="Wenzi left clear">
-					<div class="clear">
+				<div class="Wenzi left">
+					<div class="clear xiahuaxian">
 						<p class="wen left">尖叫精选</p>
 						<p class="youjian right" @click="handleclick()">＞</p>
 					</div>
@@ -89,8 +89,10 @@
 		font-size: 18px;
 		width: 300px;
 	}
-	.wen{
+	.xiahuaxian{
 		border-bottom: 1px solid #f5f5f5;
+	}
+	.wen{
 		height: 40px;
 		line-height: 40px;
 	}
