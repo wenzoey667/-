@@ -7,6 +7,8 @@ import homedesign from '../components/index/homedesign/homedesign'
 import activity from '../components/index/activity/activity'
 import productgroup from '../components/index/productgroup/productgroup'
 import detail from '../components/detail/detail'
+import category from '../components/category/category'
+import cart from '../components/cart/cart'
 
 Vue.use(Router)
 
@@ -30,6 +32,14 @@ export default new Router({
       path: 'productgroup/:id',
       component: productgroup
     }]
+  },
+  {
+    path:'/category',
+    component:category
+  },
+  {
+    path:'/cart',
+    path:cart
   },
   {
     path: '/detail/:id/:parentid',
