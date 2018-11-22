@@ -1,7 +1,7 @@
 <template>
 	<div class="bd">
 		<mt-swipe :auto="0">
-		  	<mt-swipe-item key="index" v-for="data,index in datalist" :key="data.id">
+		  	<mt-swipe-item v-for="data,index in datalist" :key="data.moduleId">
 				<img :src="data.bannerImgSrc"/>
 		  	</mt-swipe-item>
 		</mt-swipe>
@@ -10,7 +10,7 @@
 			<h3>现代家居新风貌</h3>
 			<div id="swiper">
 				<ul class="sL">
-					<router-link to="/detail/:id" tag="li" key="index" v-for="data,index in dataarr">
+					<router-link to="/detail/:id" tag="li" v-for="data,index in dataarr" :key="data.moduleId">
 						<img :src="data.productImg">
 						<div class="info">
 							<p>{{data.productTitle}}</p>
@@ -30,7 +30,7 @@
 				<img :src="dataall.bannerImgSrc">
 			</div>
 			<ul class="sL">
-				<router-link to="/detail/:id" tag="li" key="index" v-for="data,index in dataarr">
+				<router-link to="/detail/:id" tag="li" v-for="data,index in dataarr" :key="data.moduleId">
 					<img :src="data.productImg">
 					<div class="info">
 						<p>{{data.productTitle}}</p>
@@ -42,7 +42,7 @@
 		<div class="remen">
 			<h1>热门分类</h1>
 			<ul class="sL">
-				<router-link to="/detail/:id" tag="li" key="index" v-for="data,index in dataa">
+				<router-link to="/detail/:id" tag="li" v-for="data,index in dataa" :key="data.moduleId">
 					<img :src="data.bannerImgSrc">
 				</router-link>
 			</ul>
@@ -51,7 +51,7 @@
 			<h1>搭配茶几</h1>
 			<h3>细节让你的家美丽秘迷人</h3>
 			<ul class="sL">
-				<router-link to="/detail/:id" tag="li" key="index" v-for="data,index in datab">
+				<router-link to="/detail/:id" tag="li" v-for="data,index in datab" :key="data.moduleId">
 					<img :src="data.productImg">
 					<p>{{data.productName}}</p>
 					<span>￥{{data.originalPrice}}</span>
@@ -62,7 +62,7 @@
 			<h1>精神栖居</h1>
 			<h3>在书房里表达生活意趣</h3>
 			<ul class="sL">
-				<router-link to="/detail/:id" tag="li" key="index" v-for="data,index in datab">
+				<router-link to="/detail/:id" tag="li" v-for="data,index in datab" :key="data.moduleId">
 					<img :src="data.productImg">
 					<p>{{data.productName}}</p>
 					<span>￥{{data.originalPrice}}</span>
@@ -73,7 +73,7 @@
 			<h1>蜗居衣架</h1>
 			<h3>衣柜「爆炸」的解决方案</h3>
 			<ul class="sL">
-				<router-link to="/detail/:id" tag="li" key="index" v-for="data,index in datab">
+				<router-link to="/detail/:id" tag="li" v-for="data,index in datab" :key="data.moduleId">
 					<img :src="data.productImg">
 					<p>{{data.productName}}</p>
 					<span>￥{{data.originalPrice}}</span>
