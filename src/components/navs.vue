@@ -7,13 +7,13 @@
 						<p class="text">首页</p>
 					</div>
 				</router-link>
-				<router-link activeClass="end" to="/classify" tag="li">
+				<router-link activeClass="end" to="/category" tag="li">
 					<div>
 						<p class="iconf"><i class="iconfont icon-fenlei"></i></p>
 						<p class="text">分类</p>
 					</div>
 				</router-link>
-				<router-link activeClass="end" to="/shop" tag="li">
+				<router-link activeClass="end" to="/cart" tag="li">
 					<div>
 						<p class="iconf"><i class="iconfont icon-tubiaozhizuomoban"></i></p>
 						<p class="text">购物</p>
