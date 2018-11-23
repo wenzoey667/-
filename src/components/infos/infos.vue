@@ -2,7 +2,7 @@
 	<div>
 		<nav>
 			<i class="iconfont icon-shouye One" slot="One" @click="theFirst"></i>
-			<h3 class="Two" slot="Two">消息</h3>
+			<h3 class="Two" slot="Two">消息中心</h3>
 			<i class="iconfont icon-wode Three" slot="Three" @click="theLast"></i>
 		</nav>
 		<content>
@@ -22,6 +22,7 @@
 				</div>
 			</div>
 		</content>
+		<footer></footer>
 	</div>
 </template>
 
@@ -112,6 +113,15 @@
 		height: 34px;
 		margin: 13px 0;
 	}
+	footer{
+        width: 100%;
+        height: 450px;
+        z-index: 3;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: #f0f0f0;
+    } 
 </style>
 <style>
 	

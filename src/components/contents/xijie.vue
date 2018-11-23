@@ -2,7 +2,7 @@
 	<div>
 		<nav>
 			<i class="iconfont icon-shouye One" slot="One" @click="theFirst"></i>
-			<h3 class="Two" slot="Two">消息</h3>
+			<h3 class="Two" slot="Two">尖叫精选</h3>
 		</nav>
 		<div class="commentList">
 	        <div id="commentRoot">
