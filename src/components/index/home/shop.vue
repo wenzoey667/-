@@ -81,7 +81,6 @@
 				},50);
 			},
 			setdetail(val){
-				console.log(val);
 				this.$store.state.detail = val;
 				this.$router.push('/detail/' + val.productId)
 			}

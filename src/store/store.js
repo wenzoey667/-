@@ -12,7 +12,9 @@ var store = new vuex.Store({
 		detail: [],
 		categoryId: 20,
 		categoryTitle:'',
-		isLogin:false
+		isLogin:false,
+		cartlist:[],
+		count:0
 	},
 	mutations: {
 

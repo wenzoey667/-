@@ -16,6 +16,7 @@ import xijie from '../components/contents/xijie'
 import mine from '../components/mine/mine'
 import register from '../components/mine/register'
 import login from '../components/mine/login'
+import my from '../components/mine/my'
 
 Vue.use(Router)
 
@@ -72,6 +73,10 @@ export default new Router({
   {
     path:'/mine',
     component:mine
+  },
+  {
+    path:'/my',
+    component:my
   },
   {
     path: '/detail/:id',

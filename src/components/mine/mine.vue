@@ -4,38 +4,38 @@
 			<div class="head">
 				<p>我</p>
 			</div>
-			<div class="my clear">
+			<router-link tag="div" to="/my" class="my clear">
 				<img src="https://m.wowdsgn.com/static/img/default_portrait.png" alt="" class="left">
 				<div class="my_name left">block_xun</div>
 				<div class="go right"><i class="iconfont icon-arrow"></i></div>
-			</div>
+			</router-link>
 			<div class="order">
 				<div class="orderName">全部订单</div>
 				<ul>
 					<li class="clear">
 						<i class="iconfont icon-weibiaoti2fuzhi04"></i>
 						<span>代付款<i class="right iconfont icon-arrow"></i></span>
-						
+
 					</li>
 					<li class="clear">
 						<i class="iconfont icon-icon-test"></i>
 						<span>代发货<i class="right iconfont icon-arrow"></i></span>
-						
+
 					</li>
 					<li class="clear">
 						<i class="iconfont icon-icon3"></i>
 						<span>代收货<i class="right iconfont icon-arrow"></i></span>
-						
+
 					</li>
 					<li class="clear">
 						<i class="iconfont icon-weibiaoti2fuzhi06"></i>
 						<span>代评论<i class="right iconfont icon-arrow"></i></span>
-						
+
 					</li>
 					<li class="clear">
 						<i class="iconfont icon-tuihuanhuo"></i>
 						<span>退换货<i class="right iconfont icon-arrow"></i></span>
-						
+
 					</li>
 				</ul>
 			</div>
@@ -64,11 +64,6 @@
 	import axios from "axios";
 	export default {
 		name: 'mine',
-		data(){
-			return{
-				
-			}
-		},
 		beforeCreate(){
 			if(this.$store.state.isLogin){
 				return;
