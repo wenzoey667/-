@@ -1,59 +1,61 @@
 <template>
-	<div style="background: #f9f9f9; min-height: 100%;">
-		<div class="head">
-			<p>我</p>
-		</div>
-		<div class="my clear">
-			<img src="https://m.wowdsgn.com/static/img/default_portrait.png" alt="" class="left">
-			<div class="my_name left">block_xun</div>
-			<div class="go right"><i class="iconfont icon-arrow"></i></div>
-		</div>
-		<div class="order">
-			<div class="orderName">全部订单</div>
-			<ul>
-				<li class="clear">
-					<i class="iconfont icon-weibiaoti2fuzhi04"></i>
-					<span>代付款<i class="right iconfont icon-arrow"></i></span>
-					
-				</li>
-				<li class="clear">
-					<i class="iconfont icon-icon-test"></i>
-					<span>代发货<i class="right iconfont icon-arrow"></i></span>
-					
-				</li>
-				<li class="clear">
-					<i class="iconfont icon-icon3"></i>
-					<span>代收货<i class="right iconfont icon-arrow"></i></span>
-					
-				</li>
-				<li class="clear">
-					<i class="iconfont icon-weibiaoti2fuzhi06"></i>
-					<span>代评论<i class="right iconfont icon-arrow"></i></span>
-					
-				</li>
-				<li class="clear">
-					<i class="iconfont icon-tuihuanhuo"></i>
-					<span>退换货<i class="right iconfont icon-arrow"></i></span>
-					
-				</li>
-			</ul>
-		</div>
-		<div class="lookAtMe">
-			<div class="wdsc">
-				<span>我的收藏</span>
-				<i class="right iconfont icon-arrow"></i>
+	<div>
+		<div style="background: #f9f9f9; min-height: 100%;">
+			<div class="head">
+				<p>我</p>
 			</div>
-			<div class="wdsc">
-				<span>我的礼券</span>
-				<i class="right iconfont icon-arrow"></i>
+			<router-link tag="div" to="/my" class="my clear">
+				<img src="https://m.wowdsgn.com/static/img/default_portrait.png" alt="" class="left">
+				<div class="my_name left">block_xun</div>
+				<div class="go right"><i class="iconfont icon-arrow"></i></div>
+			</router-link>
+			<div class="order">
+				<div class="orderName">全部订单</div>
+				<ul>
+					<li class="clear">
+						<i class="iconfont icon-weibiaoti2fuzhi04"></i>
+						<span>代付款<i class="right iconfont icon-arrow"></i></span>
+
+					</li>
+					<li class="clear">
+						<i class="iconfont icon-icon-test"></i>
+						<span>代发货<i class="right iconfont icon-arrow"></i></span>
+
+					</li>
+					<li class="clear">
+						<i class="iconfont icon-icon3"></i>
+						<span>代收货<i class="right iconfont icon-arrow"></i></span>
+
+					</li>
+					<li class="clear">
+						<i class="iconfont icon-weibiaoti2fuzhi06"></i>
+						<span>代评论<i class="right iconfont icon-arrow"></i></span>
+
+					</li>
+					<li class="clear">
+						<i class="iconfont icon-tuihuanhuo"></i>
+						<span>退换货<i class="right iconfont icon-arrow"></i></span>
+
+					</li>
+				</ul>
 			</div>
-			<div class="wdsc">
-				<span>客服电话</span><span class="phone">周一至周五 9:00 ~ 18:30</span>
-				<i class="right iconfont icon-arrow"></i>
+			<div class="lookAtMe">
+				<div class="wdsc">
+					<span>我的收藏</span>
+					<i class="right iconfont icon-arrow"></i>
+				</div>
+				<div class="wdsc">
+					<span>我的礼券</span>
+					<i class="right iconfont icon-arrow"></i>
+				</div>
+				<div class="wdsc">
+					<span>客服电话</span><span class="phone">周一至周五 9:00 ~ 18:30</span>
+					<i class="right iconfont icon-arrow"></i>
+				</div>
 			</div>
+			<div class="end">退出登录</div>
+			<div class="bottom"></div>
 		</div>
-		<div class="end">退出登录</div>
-		<div class="bottom"></div>
 	</div>
 </template>
 
@@ -62,6 +64,12 @@
 	import axios from "axios";
 	export default {
 		name: 'mine',
+		beforeCreate(){
+			if(this.$store.state.isLogin){
+				return;
+			}
+			this.$router.push('/login');
+		}
 	}
 </script>
 

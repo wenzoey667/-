@@ -17,8 +17,16 @@
 </template>
 
 <script>
+	import axios from "axios"
 	export default {
 		name: 'heads',
+		beforeCreate(){
+			axios.post('/isLogin').then(res=>{
+				console.log('aa');
+				console.log(res.data);
+				this.$store.state.isLogin = res.data;
+			})
+		}
 	}
 </script>
 

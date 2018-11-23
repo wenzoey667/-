@@ -37,9 +37,19 @@ module.exports = {
             changeOrigin:true
         },
         "/register":{
-            target: "http://localhost:3000",
-            host:"localhost:3000",
-            changeOrigin:true
+            target : "http://localhost:3000",
+            host : "localhost:3000",
+            changeOrigin : true
+        },
+        "/login":{
+            target : "http://localhost:3000",
+            host : "localhost:3000",
+            changeOrigin : true
+        },
+        "/isLogin":{
+            target : "http://localhost:3000",
+            host : "localhost:3000",
+            changeOrigin : true
         }
     },
 

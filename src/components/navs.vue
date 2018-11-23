@@ -17,6 +17,7 @@
 					<div>
 						<p class="iconf"><i class="iconfont icon-tubiaozhizuomoban"></i></p>
 						<p class="text">购物</p>
+						<h5 v-if="$store.state.count>0">{{$store.state.count}}</h5>
 					</div>
 				</router-link>
 				<router-link activeClass="end" to="/infos" tag="li">
@@ -36,9 +37,23 @@
 </template>
 
 <script>
-	import '../assets/font_928034_och37s6bfco/iconfont.css'
+	import '../assets/font_928034_och37s6bfco/iconfont.css';
 	export default {
 		name: 'navs',
+		data(){
+			return{
+				// count : 0
+			}
+		},
+		mounted(){
+			var num = 0;
+			this.$http.get('/static/cart/cart.json').then(res=>{
+				res.body.forEach(val=>{
+					num += val.count;
+				})
+				this.$store.state.count = num;
+			})
+		}
 	}
 </script>
 
@@ -93,6 +108,9 @@ li{
 	font-size: 12px;
 	position: relative;
 }
+li:nth-of-type(3){
+	position: relative;
+}
 p{
 	color: #444;
 }
@@ -102,5 +120,15 @@ p{
 .end .text{
 	font-weight: 600;
 }
-
+h5{
+	position: absolute;
+	line-height: 15px;
+	width: 15px;
+	text-align: center;
+	background-color: #FFD444;
+	z-index: 2;
+	top: 2px;
+	right: 22px;
+	border-radius: 50%;
+}
 </style>
