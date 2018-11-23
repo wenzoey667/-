@@ -19,13 +19,13 @@
 						<p class="text">购物</p>
 					</div>
 				</router-link>
-				<router-link activeClass="end" to="/information" tag="li">
+				<router-link activeClass="end" to="/infos" tag="li">
 					<div>
 						<p class="iconf"><i class="iconfont icon-xinfeng"></i></p>
 						<p class="text">消息</p>
 					</div>
 				</router-link>
-				<router-link activeClass="end" to="/my" tag="li">
+				<router-link activeClass="end" to="/mine" tag="li">
 					<div>
 						<p class="iconf"><i class="iconfont icon-wode"></i></p>
 						<p class="text">我的</p>
@@ -36,9 +36,10 @@
 </template>
 
 <script>
-	import '../assets/font_928034_och37s6bfco/iconfont.css'
+	import '../assets/font_928034_och37s6bfco/iconfont.css';
+	import axios from "axios";
 	export default {
-		name: 'navs',
+		name: 'navs'
 	}
 </script>
 

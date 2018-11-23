@@ -25,6 +25,31 @@ module.exports = {
             target: "https://m.wowdsgn.com",
             host: "m.wowdsgn.com",
             changeOrigin: true
+        },
+        "/recommend":{
+            target: "https://m.wowdsgn.com",
+            host: "m.wowdsgn.com",
+            changeOrigin: true
+        },
+        "/cart":{
+            target: "https://m.wowdsgn.com",
+            host: "m.wowdsgn.com",
+            changeOrigin:true
+        },
+        "/register":{
+            target : "http://localhost:3000",
+            host : "localhost:3000",
+            changeOrigin : true
+        },
+        "/login":{
+            target : "http://localhost:3000",
+            host : "localhost:3000",
+            changeOrigin : true
+        },
+        "/isLogin":{
+            target : "http://localhost:3000",
+            host : "localhost:3000",
+            changeOrigin : true
         }
     },
 
@@ -50,9 +75,9 @@ module.exports = {
     cacheBusting: true,
 
     cssSourceMap: true
-  },
+},
 
-  build: {
+build: {
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
 
@@ -65,7 +90,7 @@ module.exports = {
      * Source Maps
      */
 
-    productionSourceMap: true,
+     productionSourceMap: true,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 
@@ -81,5 +106,5 @@ module.exports = {
     // `npm run build --report`
     // Set to `true` or `false` to always turn it on or off
     bundleAnalyzerReport: process.env.npm_config_report
-  }
+}
 }

@@ -8,7 +8,14 @@ import activity from '../components/index/activity/activity'
 import productgroup from '../components/index/productgroup/productgroup'
 import detail from '../components/detail/detail'
 import category from '../components/category/category'
+import inner from '../components/category/inner'
 import cart from '../components/cart/cart'
+import infos from '../components/infos/infos'
+import contents from '../components/contents/contents'
+import xijie from '../components/contents/xijie'
+import mine from '../components/mine/mine'
+import register from '../components/mine/register'
+import login from '../components/mine/login'
 
 Vue.use(Router)
 
@@ -32,17 +39,42 @@ export default new Router({
       path: 'productgroup/:id',
       component: productgroup
     }]
+  },{
+    path:'/register',
+    component:register
+  },{
+    path:'/login',
+    component:login
   },
   {
     path:'/category',
     component:category
+  },{
+    path:'/inner/:id',
+    component:inner,
   },
   {
     path:'/cart',
     component:cart
   },
   {
-    path: '/detail/:id/:parentid',
+    path:'/infos',
+    component:infos
+  },
+  {
+    path: '/contents',
+    component: contents,
+  },
+  {
+    path: '/xijie',
+    component: xijie,
+  },
+  {
+    path:'/mine',
+    component:mine
+  },
+  {
+    path: '/detail/:id',
     component: detail
   },{
     path: '/',

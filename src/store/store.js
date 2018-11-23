@@ -8,7 +8,11 @@ var store = new vuex.Store({
 		indexData: [],
 		activeData:[],
 		detail: [],
-		categroyId:20
+		categoryId:[],
+		detail: [],
+		categoryId: 20,
+		categoryTitle:'',
+		isLogin:false
 	},
 	mutations: {
 

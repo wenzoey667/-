@@ -1,5 +1,5 @@
 <template>
-	<div v-if="contents.data" >
+	<div v-if="contents.data">
 		<mt-swipe :auto="0">
 			<mt-swipe-item v-for="datas,index in contents.data.modules[0].moduleContent.banners" :key="datas.id">
 				<img :src="datas.bannerImgSrc" alt="">
@@ -11,44 +11,12 @@
 		<img :src="contents.data.modules[4].moduleContent.bannerImgSrc">
 		<img :src="contents.data.modules[5].moduleContent.bannerImgSrc">
 		<h2>{{contents.data.modules[6].moduleName}}</h2>
-		<div class="uls">
-			<div class="lis">
-				<div to="/detail/:id">
-					<img :src="contents.data.modules[6].moduleContent.products[0].productImg">
-					<p>{{contents.data.modules[6].moduleContent.products[0].productName}}</p><span>￥{{contents.data.modules[6].moduleContent.products[0].originalPrice}}</span>
-				</div>
-			</div>
-			<div class="lis">
-				<div to="/detail/:id">
-					<img :src="contents.data.modules[6].moduleContent.products[1].productImg">
-					<p>{{contents.data.modules[6].moduleContent.products[1].productName}}</p><span>￥{{contents.data.modules[6].moduleContent.products[1].originalPrice}}</span>
-				</div>
-			</div>
-			<div class="lis">
-				<div to="/detail/:id">
-					<img :src="contents.data.modules[6].moduleContent.products[2].productImg">
-					<p>{{contents.data.modules[6].moduleContent.products[2].productName}}</p><span>￥{{contents.data.modules[6].moduleContent.products[2].originalPrice}}</span>
-				</div>
-			</div>
-			<div class="lis">
-				<div to="/detail/:id">
-					<img :src="contents.data.modules[6].moduleContent.products[3].productImg">
-					<p>{{contents.data.modules[6].moduleContent.products[3].productName}}</p><span>￥{{contents.data.modules[6].moduleContent.products[3].originalPrice}}</span>
-				</div>
-			</div>
-			<div class="lis">
-				<div to="/detail/:id">
-					<img :src="contents.data.modules[6].moduleContent.products[4].productImg">
-					<p>{{contents.data.modules[6].moduleContent.products[4].productName}}</p><span>￥{{contents.data.modules[6].moduleContent.products[4].originalPrice}}</span>
-				</div>
-			</div>
-			<div class="lis">
-				<div to="/detail/:id">
-					<img :src="contents.data.modules[6].moduleContent.products[5].productImg">
-					<p>{{contents.data.modules[6].moduleContent.products[5].productName}}</p><span>￥{{contents.data.modules[6].moduleContent.products[5].originalPrice}}</span>
-				</div>
-			</div>
-		</div>
+		<ul class="uls">
+			<li  class="lis" v-for="data in showArr" :key="data.id" >
+				<img :src="data.productImg">
+				<p>{{data.productName}}</p><span>￥{{data.originalPrice}}</span>
+			</li>
+		</ul>
 		<div class="drap" @click="drap(contents.data.modules[6].moduleContent.id)">查看全部  ▶</div>
 		<div class="top" @click="goTop()" v-show="isshow">
 			<img src="../../../assets/images/backTop.png" alt="">
@@ -66,7 +34,8 @@
 		data(){
 			return{
 				contents:{},
-				isshow: false
+				isshow: false,
+				showArr:[]
 			}
 		},
 		methods: {
@@ -81,6 +50,9 @@
 			},
 			drap(id){
 				this.$router.push('/index/productgroup/'+id)
+			},
+			details(){
+
 			}
 		},
 		components:{
@@ -88,6 +60,11 @@
 			'swipe-item':SwipeItem
 		},
 		mounted(){
+			axios.get('/v2/page?pageId=1&tabId=10010&_='+new Date().getTime()).then(resp=>{
+					this.contents = resp.data;
+					this.showArr = this.contents.data.modules[6].moduleContent.products.slice(0,6);
+					this.$store.state.activeData = resp.data;
+			})
 			window.addEventListener('scroll',()=>{
 				if (document.documentElement.scrollTop > 400) {
 					this.isshow = true
@@ -95,14 +72,15 @@
 					this.isshow = false
 				}
 			})
-			if(this.$store.state.indexData.length===0){
-				axios.get('/v2/page?pageId=1&tabId=10010&_=1542777383978').then(resp=>{
+			/*if(this.$store.state.activeData.length===0){
+				axios.get('/v2/page?pageId=1&tabId=10010&_='+new Date().getTime()).then(resp=>{
 					this.contents = resp.data;
-					this.$store.state.indexData = resp.data;
+					this.showArr = this.contents.data.modules[6].moduleContent.products.slice(0,6);
+					this.$store.state.activeData = resp.data;
 				})
 			}else{
-				this.contents = this.$store.state.indexData;
-			}
+				this.contents = this.$store.state.activeData;
+			}*/
 		}
 	}
 </script>
