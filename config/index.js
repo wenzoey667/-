@@ -35,6 +35,11 @@ module.exports = {
             target: "https://m.wowdsgn.com",
             host: "m.wowdsgn.com",
             changeOrigin:true
+        },
+        "/register":{
+            target: "http://localhost:3000",
+            host:"localhost:3000",
+            changeOrigin:true
         }
     },
 

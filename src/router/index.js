@@ -13,6 +13,7 @@ import infos from '../components/infos/infos'
 import contents from '../components/contents/contents'
 import xijie from '../components/contents/xijie'
 import mine from '../components/mine/mine'
+import register from '../components/register/register'
 
 Vue.use(Router)
 
@@ -60,6 +61,10 @@ export default new Router({
   {
     path:'/mine',
     component:mine
+  },
+  {
+    path:'/register',
+    component:register
   },
   {
     path: '/detail/:id',

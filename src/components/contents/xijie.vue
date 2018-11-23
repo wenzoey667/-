@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<nav>
-			<i class="iconfont icon-shouye One" slot="One"></i>
+			<i class="iconfont icon-shouye One" slot="One" @click="theFirst"></i>
 			<h3 class="Two" slot="Two">消息</h3>
 		</nav>
 		<div class="commentList">
@@ -41,6 +41,7 @@
 	    		暂无更多消息
 	    	</div>
 		</div>
+		<footer></footer>
 	</div>
 </template>
 
@@ -49,6 +50,9 @@
 	export default{
 		name:'xijie',
 		methods:{
+			theFirst(){
+				this.$router.push('/index/home')
+			},
 			handleclick(){
 				this.$router.push('/contents')
 			},
@@ -71,7 +75,7 @@
 		border-bottom: 1px solid #f5f5f5;
 	}
 	.One{
-		position: fixed;
+		position: absolute;
 		top: 0;
 		left: 10px;
 	}
@@ -103,4 +107,13 @@
 	.last{
 		height: 200px;
 	}
+	footer{
+        width: 100%;
+        height: 50px;
+        z-index: 3;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: #f1f1f1;
+    }
 </style>

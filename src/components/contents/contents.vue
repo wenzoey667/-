@@ -288,7 +288,8 @@
             <div><img src="null?imageslim" alt=""></div>
             <p class="text-left"><span>撰文_蝉子 | 编辑_财宝</span></p>
         </div>
-	</div>
+    	<footer></footer>
+    </div>
 </template>
 
 <script>
@@ -298,6 +299,9 @@
 </script>
 
 <style scoped>
+    .brand-details-dec{
+        z-index: 5;
+    }
 	.brand-details-dec div{
 		text-align:center;
 	}
@@ -307,4 +311,13 @@
 	p{
 		color: #515151;
 	}
+    footer{
+        width: 100%;
+        height: 50px;
+        z-index: 3;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+    } 
 </style>
