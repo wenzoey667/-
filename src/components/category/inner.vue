@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<header>
-			<i class="iconfont icon-shouye b" ></i>
+			<i class="iconfont icon-shouye b" @click="home()"></i>
 			<h2>{{$store.state.categoryTitle}}</h2>
 			<i class="icon-fenlei iconfont a"></i>
 		</header>
@@ -20,24 +20,41 @@
 				<router-link activeClass="activeN" tag="li" to="/inner/20/jg"><p>价格</p></router-link>
 			</ul>
 		</div>
+		<div class="proInfo">
+			<ul>
+				<li v-for="data in datalist"><img :src="data.productImg"><p>{{data.productTitle}}</p><span>￥{{data.sellPrice}}</span></li>
+			</ul>
+		</div>
 	</div>
 </template>
 <script>
 	//https://m.wowdsgn.com/pages/category/35?pageNumber=1&orderBy=onShelfTime&sort=desc&_=1542901533890
+	import axios from "axios"
 	export default{
 		name:"inner",
 		data(){
 			return{
-				datalist:[]
+				datalist:[],
+				dataname:[],
+				dataprice:[]
+			}
+		},
+		methods:{
+			home(){
+				this.$router.push('/index/home');
 			}
 		},
 		mounted(){
-			// axios.get("")
+			axios.get("/pages/category/20?pageNumber=1&orderBy=onShelfTime&sort=desc&_="+new Date().getTime()).then(res=>{
+				 this.datalist = res.data.data.products;
+				console.log(res);
+			})
 		}
 	}
 </script>
 <style scoped lang="scss">
 	header{
+		z-index:1000;
 	    background: #fff;
 	    height: 45px;
 	    line-height: 45px;
@@ -59,6 +76,7 @@
 		}
 	}
 	.menu{
+		z-index:1000;
 		background: url(https://img.wowdsgn.com/category/background/10.jpg?imageslim) no-repeat left center;
 	    position: relative;
 	    height: 90px;
@@ -105,6 +123,7 @@
 	    }
 	}
 	.nav{
+		z-index:100000;
 		ul{
 			list-style: none;
 			width:100%;
@@ -129,5 +148,38 @@
 			    box-sizing:border-box;
 			}
 		}
+	}
+	.proInfo{
+		position: relative;
+		ul{
+			position:relative;
+			li{
+				width:48%;
+				padding-left: 5px;
+				box-sizing:border-box;
+			    width: 100%;
+			    padding-bottom: 5px;
+				float:left;
+				img{
+					width:50%;
+				}
+				p{
+					color: #808080;
+				    font-size: 12px;
+				    overflow: hidden;
+				    text-overflow: ellipsis;
+				    white-space: nowrap;
+				    width: 48%;
+				}
+				span{
+					display: block;
+					width:50%;
+					height:10px;
+				}
+			}
+		}
+
+		
+		
 	}
 </style>

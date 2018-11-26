@@ -26,6 +26,11 @@ module.exports = {
             host: "m.wowdsgn.com",
             changeOrigin: true
         },
+        "/category":{
+            target:"https://m.wowdsgn.com",
+            host:"m.wowdsgn.com",
+            changeOrigin:true
+        },
         "/recommend":{
             target: "https://m.wowdsgn.com",
             host: "m.wowdsgn.com",
@@ -48,6 +53,11 @@ module.exports = {
         },
         "/isLogin":{
             target : "http://localhost:3000",
+            host : "localhost:3000",
+            changeOrigin : true
+        },
+        "/outLogin":{
+            target:"http://localhost:3000",
             host : "localhost:3000",
             changeOrigin : true
         }

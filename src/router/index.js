@@ -17,6 +17,15 @@ import mine from '../components/mine/mine'
 import register from '../components/mine/register'
 import login from '../components/mine/login'
 import my from '../components/mine/my'
+import lodingPayment from '../components/mine/lodingPayment'
+import m_all from '../components/mine/m/all.vue'
+import m_payment from '../components/mine/m/payment.vue'
+import m_shipments from '../components/mine/m/shipments.vue'
+import m_arrival from '../components/mine/m/arrival.vue'
+import m_end from '../components/mine/m/end.vue'
+import m_quit from '../components/mine/quit.vue'
+import collect from '../components/mine/collect.vue'
+import gift from '../components/mine/gift.vue'
 
 Vue.use(Router)
 
@@ -72,11 +81,51 @@ export default new Router({
   },
   {
     path:'/mine',
-    component:mine
-  },
-  {
-    path:'/my',
-    component:my
+    component: mine,
+    children: [
+    {
+      path:'my',
+      component: my
+    },
+    {
+      path: 'quit',
+      component: m_quit
+    },
+    {
+      path: 'collect',
+      component: collect
+    },
+    {
+      path: 'gift',
+      component: gift
+    },
+    {
+      path:'lodingPayment',
+      component: lodingPayment,
+      children: [
+        {
+          path: 'all',
+          component: m_all
+        },
+        {
+          path: 'payment',
+          component: m_payment
+        },
+        {
+          path: 'shipments',
+          component: m_shipments
+        },
+        {
+          path: 'arrival',
+          component: m_arrival
+        },
+        {
+          path: 'end',
+          component: m_end
+        }
+      ]
+    }
+    ]
   },
   {
     path: '/detail/:id',
@@ -84,8 +133,8 @@ export default new Router({
   },{
     path: '/',
     redirect: '/index/home'
-  },{
+  }/*,{
     path: '*',
     redirect: '/index/home'
-  }]
+  }*/]
 })

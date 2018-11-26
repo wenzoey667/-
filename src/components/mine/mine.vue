@@ -1,10 +1,10 @@
 <template>
 	<div>
-		<div style="background: #f9f9f9; min-height: 100%;">
+		<div style="background: #f9f9f9; min-height: 100%;" v-if="ismine">
 			<div class="head">
 				<p>我</p>
 			</div>
-			<router-link tag="div" to="/my" class="my clear">
+			<router-link tag="div" to="mine/my" class="my clear">
 				<img src="https://m.wowdsgn.com/static/img/default_portrait.png" alt="" class="left">
 				<div class="my_name left">block_xun</div>
 				<div class="go right"><i class="iconfont icon-arrow"></i></div>
@@ -12,50 +12,51 @@
 			<div class="order">
 				<div class="orderName">全部订单</div>
 				<ul>
-					<li class="clear">
+					<router-link tag="li" class="clear" to="mine/lodingPayment/payment">
 						<i class="iconfont icon-weibiaoti2fuzhi04"></i>
 						<span>代付款<i class="right iconfont icon-arrow"></i></span>
 
-					</li>
-					<li class="clear">
+					</router-link>
+					<router-link tag="li" class="clear" to="mine/lodingPayment/shipments">
 						<i class="iconfont icon-icon-test"></i>
 						<span>代发货<i class="right iconfont icon-arrow"></i></span>
 
-					</li>
-					<li class="clear">
+					</router-link>
+					<router-link tag="li" class="clear" to="mine/lodingPayment/arrival">
 						<i class="iconfont icon-icon3"></i>
 						<span>代收货<i class="right iconfont icon-arrow"></i></span>
 
-					</li>
-					<li class="clear">
+					</router-link>
+					<router-link tag="li" class="clear" to="mine/lodingPayment/end">
 						<i class="iconfont icon-weibiaoti2fuzhi06"></i>
 						<span>代评论<i class="right iconfont icon-arrow"></i></span>
 
-					</li>
-					<li class="clear">
+					</router-link>
+					<router-link tag="li" class="clear" to="mine/quit">
 						<i class="iconfont icon-tuihuanhuo"></i>
 						<span>退换货<i class="right iconfont icon-arrow"></i></span>
 
-					</li>
+					</router-link>
 				</ul>
 			</div>
 			<div class="lookAtMe">
-				<div class="wdsc">
+				<router-link tag="div" to="mine/collect" class="wdsc">
 					<span>我的收藏</span>
 					<i class="right iconfont icon-arrow"></i>
-				</div>
-				<div class="wdsc">
+				</router-link>
+				<router-link tag="div" to="mine/gift" class="wdsc">
 					<span>我的礼券</span>
 					<i class="right iconfont icon-arrow"></i>
-				</div>
-				<div class="wdsc">
+				</router-link>
+				<div class="wdsc" @click="phone()">
 					<span>客服电话</span><span class="phone">周一至周五 9:00 ~ 18:30</span>
 					<i class="right iconfont icon-arrow"></i>
 				</div>
 			</div>
-			<div class="end">退出登录</div>
+			<div class="end" @click="handleClick()">退出登录</div>
 			<div class="bottom"></div>
 		</div>
+		<router-view/>
 	</div>
 </template>
 
@@ -64,11 +65,54 @@
 	import axios from "axios";
 	export default {
 		name: 'mine',
+		created(){
+			console.log(this.$route.matched);
+			if (this.$route.matched.length == 1) {
+				this.ismine = true
+			} else {
+				this.ismine = false
+			}
+		},
+		data(){
+			return {
+				ismine: false
+			}
+		},
+		methods: {
+			phone(){
+				for (var i = 0; i < 100; i++) {
+				alert('正在拨打电话......')
+			}
+				alert('拨打失败')
+			},
+			handleClick(){
+				axios({
+				  method: 'post',
+				  url: '/outLogin'
+				}).then((response)=>{
+				  this.$store.state.isLogin = response.data;
+				  console.log(response.data)
+				  	this.$router.push('/login');
+				}).catch(err=>{
+					console.log(err);
+				});
+			}
+		},
 		beforeCreate(){
 			if(this.$store.state.isLogin){
 				return;
 			}
 			this.$router.push('/login');
+		},
+		watch: {
+			$route(){
+				console.log(this.$route.matched);
+				if (this.$route.matched.length == 1) {
+					this.ismine = true
+				} else {
+					this.ismine = false
+				}
+			}
 		}
 	}
 </script>

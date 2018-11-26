@@ -20,17 +20,6 @@
 				console.log(this.$refs.username.value)
 				console.log(this.$refs.password.value)
 				console.log(this.$refs.mobile.value)
-				// var params = new URLSearchParams();
-				// params.append('usernmae', JSON.stringify(this.$refs.username.value));
-				// params.append('password', JSON.stringify(this.$refs.password.value));
-				// params.append('mobile', JSON.stringify(this.$refs.mobile.value));
-
-				// axios.post('/register',params).then(res=>{
-				// 	console.log(res)
-				// })
-				// var username = this.$refs.username.value;
-				// var password = this.$refs.password.value;
-				// var mobile = this.$refs.mobile.value;
 				axios({
 				  method: 'post',
 				  url: '/register',
