@@ -35,7 +35,8 @@
 		},
 		mounted(){
 			axios.get('/pages/productGroup/' + this.$route.params.id + '/products?pageNumber=1&_=1542797443199').then((res)=>{
-				this.groups = res.data.data.products;
+				console.log(res.data);
+				this.groups = res.data.data;
 				this.total = this.groups.length;
 			})
 		},
@@ -48,7 +49,7 @@
 			    	return ;
 				}
 				axios.get('/pages/productGroup/' + this.$route.params.id + '/products?pageNumber=1&_=1542797443199').then((res)=>{
-					this.groups = res.data.data.products;
+					this.groups = res.data.data;
 				})
 			}
 		}

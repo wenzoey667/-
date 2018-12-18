@@ -133,8 +133,8 @@ export default new Router({
   },{
     path: '/',
     redirect: '/index/home'
-  }/*,{
-    path: '*',
+  },{
+    path: '/home',
     redirect: '/index/home'
-  }*/]
+  }]
 })

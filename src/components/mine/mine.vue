@@ -99,7 +99,9 @@
 			}
 		},
 		beforeCreate(){
+			console.log('beforeCreate')
 			if(this.$store.state.isLogin){
+				console.log(this.$store.state);
 				return;
 			}
 			this.$router.push('/login');

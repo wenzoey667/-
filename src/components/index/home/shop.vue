@@ -9,8 +9,8 @@
 						<h3>{{data.moduleName}}</h3>
 						<p>{{data.moduleDescription}}</p>
 					</div>
-					<div class="img">
-						<img :src="data.moduleContent.banners[0].bannerImgSrc" alt="">
+					<div v-for="data,i in data.moduleContent.banners" class="img">
+						<img :src="data.bannerImgSrc" @click="setdetail2(data)" alt="">
 					</div>
 				</div>
 
@@ -21,8 +21,8 @@
 						<p>{{data.moduleDescription}}</p>
 					</div>
 					<div class="img">
-						<div class="banner">
-							<img :src="data.moduleContent.banners[0].bannerImgSrc" alt="">
+						<div v-for="data,i in data.moduleContent.banners" class="banner">
+							<img :src="data.bannerImgSrc" @click="setdetail2(data)" alt="">
 						</div>
 						<div class="imgs">
 							<div v-for="val,i in data.moduleContent.products" class="smallimg"  @click="setdetail(val)">
@@ -83,6 +83,13 @@
 			setdetail(val){
 				this.$store.state.detail = val;
 				this.$router.push('/detail/' + val.productId)
+			},
+			setdetail2(data){
+				console.log(data)
+				console.log(data.bannerLinkType)
+				if (data.bannerLinkType == 8) {
+					this.$router.push('/index/productgroup/' + data.bannerLinkTargetId)
+				}
 			}
 		},
 		/******************************************/

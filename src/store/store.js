@@ -18,6 +18,9 @@ var store = new vuex.Store({
 	},
 	mutations: {
 
+	},
+	actions: {
+
 	}
 })
 export default store
